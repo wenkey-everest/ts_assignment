@@ -1,6 +1,10 @@
 # TDD apporach for fetch of data from server ts_assignment
 
-'''bash npm install typescript '''
+```bash
+npm install
+tsc -w
+npm start
+```
 
 ## step-1
  test case-1:
