@@ -1,6 +1,7 @@
 # TDD apporach for fetch of data from server ts_assignment
 
-''' bash install typecrript '''
+'''bash npm install typescript
+        npm install axios '''
 
 ## step-1
  test case-1:
