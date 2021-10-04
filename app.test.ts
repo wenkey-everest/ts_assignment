@@ -13,5 +13,5 @@ test("Api should return status", async () => {
 
   test("Api doesn't fetch the data", async ()=>{
     mockedAxios.get.mockRejectedValue(resp);
-   return mockingAssign().then((res)=> expect(res).toEqual("failed")); 
+   return mockingAssign().then((res)=> expect(res).toEqual(api.status)); 
   })
