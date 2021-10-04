@@ -1,5 +1,7 @@
 # TDD apporach for fetch of data from server ts_assignment
 
+''' bash install typecrript '''
+
 ## step-1
  test case-1:
   should return status
