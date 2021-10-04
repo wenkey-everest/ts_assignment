@@ -20,6 +20,8 @@ const mockingAssign = () => __awaiter(void 0, void 0, void 0, function* () {
         .then((res) => {
         return res.data.status;
     })
-        .catch((err) => console.error(err));
+        .catch(() => {
+        return "failed";
+    });
 });
 exports.mockingAssign = mockingAssign;

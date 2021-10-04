@@ -1,6 +1,5 @@
  
 import axios from "axios";
-import { FetchError } from "node-fetch";
 import {mockingAssign} from "./app";
 const api = { status : "success"};
 const resp = {data:api};
@@ -14,5 +13,5 @@ test("Api should return status", async () => {
 
   test("Api doesn't fetch the data", async ()=>{
     mockedAxios.get.mockRejectedValue(resp);
-    return mockingAssign().then((res)=> expect(res).toEqual(api.status)); 
+   return mockingAssign().then((res)=> expect(res).toEqual(api.status)); 
   })
