@@ -1,13 +1,10 @@
 import axios from "axios";
 
 
-const swapiGetter = async () =>
+const mockingAssign = async () =>
  await axios
     .get(`https://dog.ceo/api/breeds/image/random`)
     .then((res:any) => {
-        const one = res.data.status;
-        return one;
-    })
+        return res.data.status;})
     .catch((err) => console.error(err));
-    
-    export{swapiGetter}
+    export{mockingAssign}

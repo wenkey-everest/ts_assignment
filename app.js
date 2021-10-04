@@ -8,11 +8,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const axio_1 = require("./axio");
-describe("swapiGetter", () => {
-    test("should return a name", () => __awaiter(void 0, void 0, void 0, function* () {
-        const result = yield (0, axio_1.swapiGetter)();
-        expect(result).toBe("success");
-    }));
+exports.mockingAssign = void 0;
+const axios_1 = __importDefault(require("axios"));
+const mockingAssign = () => __awaiter(void 0, void 0, void 0, function* () {
+    return yield axios_1.default
+        .get(`https://dog.ceo/api/breeds/image/random`)
+        .then((res) => {
+        return res.data.status;
+    })
+        .catch((err) => console.error(err));
 });
+exports.mockingAssign = mockingAssign;

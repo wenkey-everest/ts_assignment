@@ -12,15 +12,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.swapiGetter = void 0;
 const axios_1 = __importDefault(require("axios"));
-const swapiGetter = () => __awaiter(void 0, void 0, void 0, function* () {
-    return yield axios_1.default
-        .get(`https://dog.ceo/api/breeds/image/random`)
-        .then((res) => {
-        const one = res.data.status;
-        return one;
-    })
-        .catch((err) => console.error(err));
-});
-exports.swapiGetter = swapiGetter;
+const app_1 = require("./app");
+const api = { status: "success" };
+const resp = { data: api };
+jest.mock('axios');
+const mockedAxios = axios_1.default;
+test("Api should return status", () => __awaiter(void 0, void 0, void 0, function* () {
+    mockedAxios.get.mockResolvedValue(resp);
+    console.log(resp);
+    console.log(api.status);
+    return (0, app_1.mockingAssign)().then((data) => expect(data).toEqual(api.status));
+}));
