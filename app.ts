@@ -5,5 +5,6 @@ const mockingAssign = async () =>
     .then((res:any) => {
         return res.data.status;})
     .catch(() => {
-        return "failed";});
+        return "failed";
+    });
     export{mockingAssign}

@@ -24,5 +24,5 @@ test("Api should return status", () => __awaiter(void 0, void 0, void 0, functio
 }));
 test("Api doesn't fetch the data", () => __awaiter(void 0, void 0, void 0, function* () {
     mockedAxios.get.mockRejectedValue(resp);
-    return (0, app_1.mockingAssign)().then((res) => expect(res).toEqual(api.status));
+    return (0, app_1.mockingAssign)().then((res) => expect(res).toEqual("failed"));
 }));
