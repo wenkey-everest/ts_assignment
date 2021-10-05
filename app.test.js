@@ -14,15 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const app_1 = require("./app");
-const api = { status: "success" };
-const resp = { data: api };
+const api = { message: "hello world", status: "success" };
+const res = { data: api };
 jest.mock('axios');
 const mockedAxios = axios_1.default;
 test("Api should return status", () => __awaiter(void 0, void 0, void 0, function* () {
-    mockedAxios.get.mockResolvedValue(resp);
+    mockedAxios.get.mockResolvedValue(res);
     return (0, app_1.mockingAssign)().then((res) => expect(res).toEqual(api.status));
 }));
 test("Api doesn't fetch the data", () => __awaiter(void 0, void 0, void 0, function* () {
-    mockedAxios.get.mockRejectedValue(resp);
-    return (0, app_1.mockingAssign)().then((res) => expect(res).toEqual("failed"));
+    mockedAxios.get.mockRejectedValue(null);
+    return (0, app_1.mockingAssign)().then((res) => expect(res).toEqual(null));
 }));

@@ -4,7 +4,8 @@ const mockingAssign = async () =>
     .get(`https://dog.ceo/api/breeds/image/random`)
     .then((res:any) => {
         return res.data.status;})
-    .catch(() => {
-        return "failed";
-    });
+    .catch((err)=>{
+        return err;
+    }
+    );
     export{mockingAssign}
