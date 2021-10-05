@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -18,11 +9,15 @@ const api = { message: "hello world", status: "success" };
 const res = { data: api };
 jest.mock('axios');
 const mockedAxios = axios_1.default;
-test("Api should return status", () => __awaiter(void 0, void 0, void 0, function* () {
+test("Api should return status", () => {
     mockedAxios.get.mockResolvedValue(res);
+    expect.assertions(1);
     return (0, app_1.mockingAssign)().then((res) => expect(res).toEqual(api.status));
-}));
-test("Api doesn't fetch the data", () => __awaiter(void 0, void 0, void 0, function* () {
+});
+test("Api doesn't fetch the data", () => {
     mockedAxios.get.mockRejectedValue(null);
-    return (0, app_1.mockingAssign)().then((res) => expect(res).toEqual(null));
-}));
+    return (0, app_1.mockingAssign)().catch((fail) => {
+        expect(fail).toEqual(null);
+        expect.assertions(1);
+    });
+});
