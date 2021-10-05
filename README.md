@@ -7,8 +7,8 @@ Dogs API https://dog.ceo/api/breeds/image/random
 
 ```bash
 npm install
-tsc -w
-npm start
+yarn compile
+yarn test
 ```
 
 ## step-1
